@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const BASE = import.meta.env.BASE_URL;
 
@@ -25,6 +25,14 @@ const slides = [
 
 export default function Hero() {
   const [current, setCurrent] = useState(0);
+
+  useEffect(() => {
+    const intervalId = window.setInterval(() => {
+      setCurrent((index) => (index + 1) % slides.length);
+    }, 10000);
+
+    return () => window.clearInterval(intervalId);
+  }, []);
 
   return (
     <section className="hero-section" id="home" aria-label="Introduction">
