@@ -1,0 +1,119 @@
+.site-footer {
+  border-top: 1px solid var(--color-border);
+  background: #f7f7f7;
+  padding: 14px 7% calc(14px + env(safe-area-inset-bottom, 0px));
+}
+
+.footer-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  grid-template-areas: "copyright socials top";
+  align-items: center;
+  gap: 20px;
+  min-height: 44px;
+}
+
+.footer-copyright {
+  grid-area: copyright;
+  margin: 0;
+  color: #777777;
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+
+.footer-socials {
+  grid-area: socials;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+}
+
+.footer-social-link {
+  display: inline-flex;
+  width: 24px;
+  height: 24px;
+  align-items: center;
+  justify-content: center;
+  padding: 2px;
+  color: #555555;
+}
+
+a.footer-social-link {
+  border-radius: 2px;
+  text-decoration: none;
+  transition: color 140ms ease;
+}
+
+a.footer-social-link:hover {
+  color: var(--color-pink);
+}
+
+a.footer-social-link:focus-visible,
+.footer-back-to-top:focus-visible {
+  outline: 2px solid var(--color-pink);
+  outline-offset: 4px;
+}
+
+.footer-social-link svg {
+  display: block;
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+.footer-back-to-top {
+  grid-area: top;
+  justify-self: end;
+  display: inline-flex;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 3px;
+  background: var(--color-ink);
+  color: var(--color-white);
+  cursor: pointer;
+  transition: background-color 140ms ease;
+}
+
+.footer-back-to-top:hover {
+  background: var(--color-pink);
+}
+
+@media (max-width: 767px) {
+  .site-footer {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+
+  .footer-inner {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      "socials"
+      "copyright"
+      "top";
+    justify-items: center;
+    gap: 12px;
+  }
+
+  .footer-socials {
+    gap: 24px;
+  }
+
+  .footer-copyright {
+    text-align: center;
+  }
+
+  .footer-back-to-top {
+    justify-self: end;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  a.footer-social-link,
+  .footer-back-to-top {
+    transition: none;
+  }
+}

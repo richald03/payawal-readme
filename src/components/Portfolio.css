@@ -1,0 +1,538 @@
+#portfolio.portfolio-section {
+  --portfolio-gutter: clamp(22px, 7vw, 96px);
+  padding: clamp(72px, 8vw, 104px) var(--portfolio-gutter);
+  background: #fff;
+  color: var(--color-ink, #111);
+  scroll-margin-top: var(--mobile-header-height);
+}
+
+.portfolio-header {
+  padding-bottom: 30px;
+  border-bottom: 1px solid #e3e3e3;
+}
+
+.portfolio-heading {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 0;
+  color: var(--color-ink, #111);
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(1.45rem, 2vw, 1.7rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.portfolio-heading-dash {
+  width: 12px;
+  height: 4px;
+  flex: none;
+  background: var(--color-pink, #f10f71);
+}
+
+.portfolio-subtitle {
+  margin: 14px 0 0 26px;
+  color: #555;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 42px 26px;
+  padding-top: 32px;
+}
+
+.project-card {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-bottom: 22px;
+  border-bottom: 1px solid #e7e7e7;
+}
+
+.project-thumbnail {
+  display: grid;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  place-items: center;
+  border: 1px solid #e5e5e5;
+  background: #f5f5f5;
+  color: #777;
+  object-fit: cover;
+}
+
+.project-thumbnail-example {
+  position: relative;
+  align-content: center;
+  gap: 12px;
+  overflow: hidden;
+}
+
+.project-image-carousel {
+  position: relative;
+  width: 100%;
+}
+
+.project-image-carousel .project-thumbnail {
+  display: block;
+}
+
+.project-thumbnail-screenshot {
+  object-fit: contain;
+  background: #fff;
+}
+
+.project-image-preview-trigger {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: zoom-in;
+}
+
+.project-image-preview-trigger:focus-visible {
+  outline: 2px solid var(--color-pink, #f10f71);
+  outline-offset: 3px;
+}
+
+.project-image-preview-backdrop {
+  position: fixed;
+  z-index: 1000;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: max(20px, env(safe-area-inset-top, 0px))
+    max(20px, env(safe-area-inset-right, 0px))
+    max(20px, env(safe-area-inset-bottom, 0px))
+    max(20px, env(safe-area-inset-left, 0px));
+  background: rgba(0, 0, 0, 0.92);
+}
+
+.project-image-preview-dialog {
+  position: relative;
+  display: grid;
+  width: min(100%, 1400px);
+  height: 100%;
+  place-items: center;
+}
+
+.project-image-preview-image {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.project-image-preview-close {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  display: inline-grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 2px;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  cursor: pointer;
+}
+
+.project-image-preview-close:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}
+
+.project-image-arrow {
+  position: absolute;
+  top: 50%;
+  display: inline-grid;
+  width: 40px;
+  height: 40px;
+  place-items: center;
+  transform: translateY(-50%);
+  border: 1px solid rgba(17, 17, 17, 0.18);
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.94);
+  color: #111;
+  cursor: pointer;
+}
+
+.project-image-arrow-previous {
+  left: 10px;
+}
+
+.project-image-arrow-next {
+  right: 10px;
+}
+
+.project-image-arrow:hover {
+  background: #fff;
+}
+
+.project-image-arrow:focus-visible {
+  outline: 2px solid var(--color-pink, #f10f71);
+  outline-offset: 3px;
+}
+
+.project-image-count {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  padding: 3px 7px;
+  background: rgba(17, 17, 17, 0.72);
+  color: #fff;
+  font-size: 0.7rem;
+  line-height: 1.4;
+}
+
+.project-thumbnail-accent {
+  width: 22px;
+  height: 3px;
+  background: var(--color-pink, #f10f71);
+}
+
+.project-thumbnail-label {
+  color: #777;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.project-card-meta {
+  display: flex;
+  width: 100%;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.project-card-number {
+  color: #999;
+  font-size: 0.8rem;
+  line-height: 1.4;
+}
+
+.project-card-category {
+  color: #666;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  line-height: 1.4;
+  text-align: right;
+  text-transform: uppercase;
+}
+
+.project-card-title {
+  margin: 8px 0 0;
+  color: #111;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+.project-card-title span {
+  font-weight: 600;
+}
+
+.project-card-description {
+  margin: 10px 0 0;
+  color: #4f4f4f;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.project-card-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.project-card-actions {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: auto;
+  padding-top: 18px;
+}
+
+.project-link,
+.project-github-link,
+.project-website-link,
+.project-details-button {
+  display: inline-flex;
+  min-height: 38px;
+  align-items: center;
+  justify-content: center;
+  padding: 0 14px;
+  border: 1px solid #d9d9d9;
+  border-radius: 2px;
+  background: #fff;
+  color: #222;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: border-color 160ms ease, background-color 160ms ease;
+}
+
+.project-details-button {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.project-link:hover,
+.project-github-link:hover,
+.project-website-link:hover,
+.project-details-button:hover {
+  border-color: #bdbdbd;
+  background: #f8f8f8;
+}
+
+.project-link:focus-visible,
+.project-github-link:focus-visible,
+.project-website-link:focus-visible,
+.project-details-button:focus-visible {
+  outline: 2px solid var(--color-pink, #f10f71);
+  outline-offset: 3px;
+}
+
+.project-github-link,
+.project-website-link {
+  width: 40px;
+  padding: 0;
+}
+
+.project-github-link img,
+.project-website-link svg {
+  width: 18px;
+  height: 18px;
+}
+
+.project-modal-backdrop {
+  position: fixed;
+  z-index: 300;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: max(20px, env(safe-area-inset-top, 0px))
+    max(20px, env(safe-area-inset-right, 0px))
+    max(20px, env(safe-area-inset-bottom, 0px))
+    max(20px, env(safe-area-inset-left, 0px));
+  background: rgba(17, 17, 17, 0.42);
+}
+
+.project-modal {
+  width: min(100%, 680px);
+  max-height: 100%;
+  overflow-y: auto;
+  padding: clamp(24px, 5vw, 40px);
+  border: 1px solid #e3e3e3;
+  background: #fff;
+  color: #222;
+}
+
+.project-modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e3e3e3;
+}
+
+.project-modal-heading {
+  min-width: 0;
+}
+
+.project-modal-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  color: #777;
+  font-size: 0.75rem;
+  line-height: 1.4;
+}
+
+.project-modal-heading h2 {
+  margin: 10px 0 0;
+  color: #111;
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(1.15rem, 3vw, 1.5rem);
+  font-weight: 700;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+.project-modal-heading h2 span {
+  font-weight: 600;
+}
+
+.project-modal-close {
+  display: inline-grid;
+  width: 40px;
+  height: 40px;
+  flex: none;
+  place-items: center;
+  border: 1px solid #d9d9d9;
+  border-radius: 2px;
+  background: #fff;
+  color: #222;
+  cursor: pointer;
+}
+
+.project-modal-close:hover {
+  border-color: #bdbdbd;
+  background: #f8f8f8;
+}
+
+.project-modal-close:focus-visible {
+  outline: 2px solid var(--color-pink, #f10f71);
+  outline-offset: 3px;
+}
+
+.project-modal-description {
+  margin: 22px 0 0;
+  color: #444;
+  font-size: 1rem;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+
+.project-modal-section {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid #e3e3e3;
+}
+
+.project-modal-section h3 {
+  margin: 0;
+  color: #111;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.project-modal-feature-list {
+  display: grid;
+  gap: 10px;
+  margin: 14px 0 0;
+  padding-left: 20px;
+  color: #444;
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+.project-modal-architecture {
+  margin: 14px 0 0;
+}
+
+.project-modal-architecture-item {
+  display: grid;
+  grid-template-columns: minmax(110px, 0.35fr) minmax(0, 1fr);
+  gap: 16px;
+  padding: 12px 0;
+  border-top: 1px solid #ededed;
+}
+
+.project-modal-architecture-item dt {
+  color: #222;
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
+.project-modal-architecture-item dd {
+  margin: 0;
+  color: #555;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.project-modal-github,
+.project-modal-website {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 9px;
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 1px solid #e3e3e3;
+  color: #666;
+  font-size: 0.84rem;
+  text-decoration: none;
+}
+
+.project-modal-github img,
+.project-modal-website svg {
+  width: 18px;
+  height: 18px;
+}
+
+.project-modal-github:hover,
+.project-modal-website:hover {
+  color: #222;
+  text-decoration: underline;
+}
+
+.project-modal-github:focus-visible,
+.project-modal-website:focus-visible {
+  outline: 2px solid var(--color-pink, #f10f71);
+  outline-offset: 3px;
+}
+
+@media (min-width: 600px) {
+  .portfolio-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 44px 24px;
+  }
+}
+
+@media (min-width: 1240px) {
+  .portfolio-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 48px 28px;
+  }
+}
+
+@media (max-width: 359px) {
+  #portfolio.portfolio-section {
+    --portfolio-gutter: 18px;
+  }
+
+  @media (max-width: 480px) {
+    .project-modal-architecture-item {
+      grid-template-columns: 1fr;
+      gap: 4px;
+    }
+  }
+
+  .project-card-title {
+    font-size: 0.95rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-link,
+  .project-github-link,
+  .project-website-link,
+  .project-modal-github,
+  .project-modal-website,
+  .project-details-button {
+    transition: none;
+  }
+}

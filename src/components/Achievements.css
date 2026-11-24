@@ -1,0 +1,367 @@
+#journey.achievements-section {
+  --achievements-gutter: clamp(18px, 7vw, 96px);
+  padding: clamp(64px, 7vw, 96px) var(--achievements-gutter) clamp(16px, 2vw, 24px);
+  background: #fff;
+  color: var(--color-ink, #111);
+  scroll-margin-top: var(--mobile-header-height);
+}
+
+.achievements-header {
+  padding-bottom: 26px;
+  border-bottom: 1px solid #e3e3e3;
+}
+
+.achievements-heading {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 0;
+  color: var(--color-ink, #111);
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(1.45rem, 2vw, 1.7rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.achievements-heading-dash {
+  width: 12px;
+  height: 4px;
+  flex: none;
+  background: var(--color-pink, #f10f71);
+}
+
+.achievements-subtitle {
+  max-width: none;
+  margin: 14px 0 0 26px;
+  color: #555;
+  font-size: clamp(0.65rem, 1.55vw, 0.9rem);
+  line-height: 1.6;
+  white-space: nowrap;
+}
+
+.achievements-section .achievement-category {
+  margin-top: 28px;
+  padding: 0;
+}
+
+.achievements-section .achievement-category + .achievement-category {
+  margin-top: 32px;
+  padding: 24px 0 0;
+  border-top: 1px solid #e3e3e3;
+}
+
+.achievement-category-title {
+  margin: 0;
+  color: #222;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.045em;
+  line-height: 1.4;
+}
+
+.achievement-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 16px;
+}
+
+.achievement-card {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  border-bottom: 1px solid #e5e5e5;
+  padding-bottom: 18px;
+}
+
+.achievement-preview-trigger,
+.achievement-pdf-link {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.achievement-preview-frame {
+  display: grid;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  place-items: center;
+  overflow: hidden;
+  border: 1px solid #e5e5e5;
+  background: #f7f7f7;
+}
+
+.achievement-preview-frame img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  transition: transform 160ms ease;
+}
+
+.achievement-preview-trigger:hover .achievement-preview-frame img {
+  transform: scale(1.015);
+}
+
+.achievement-preview-trigger:focus-visible,
+.achievement-pdf-link:focus-visible {
+  outline: 2px solid var(--color-pink, #f10f71);
+  outline-offset: 3px;
+}
+
+.achievement-pdf-label {
+  color: #555;
+  font-size: 0.85rem;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.achievement-card-copy {
+  display: flex;
+  min-width: 0;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: 14px;
+}
+
+.achievement-item-title {
+  margin: 0;
+  color: #171717;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.96rem;
+  font-weight: 700;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+
+.achievement-card--academic .achievement-item-title {
+  font-size: 1.04rem;
+}
+
+.achievement-issuer {
+  margin: 7px 0 0;
+  color: #656565;
+  font-size: 0.86rem;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.achievement-year {
+  margin-top: auto;
+  padding-top: 12px;
+  color: #858585;
+  font-size: 0.78rem;
+  line-height: 1.4;
+}
+
+.achievement-lightbox-backdrop {
+  position: fixed;
+  z-index: 500;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(17, 17, 17, 0.88);
+}
+
+.achievement-lightbox {
+  position: relative;
+  display: grid;
+  width: min(100%, 1200px);
+  max-height: 100%;
+  place-items: center;
+}
+
+.achievement-lightbox-close {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border: 0;
+  background: #fff;
+  color: #111;
+  cursor: pointer;
+}
+
+.achievement-lightbox-close:focus-visible {
+  outline: 2px solid var(--color-pink, #f10f71);
+  outline-offset: 3px;
+}
+
+.achievement-lightbox-figure {
+  position: relative;
+  display: grid;
+  max-width: 100%;
+  max-height: 100%;
+  justify-items: center;
+  gap: 12px;
+  margin: 0;
+}
+
+.achievement-confetti {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.achievement-confetti i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 8px;
+  height: 14px;
+  border-radius: 1px;
+  background: var(--color-pink, #f10f71);
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.55));
+  animation: achievement-confetti-burst 1200ms ease-out both;
+}
+
+.achievement-confetti i:nth-child(1) { background: #f10f71; }
+.achievement-confetti i:nth-child(2) { background: #ffd405; }
+.achievement-confetti i:nth-child(3) { background: #28c7fa; }
+.achievement-confetti i:nth-child(4) { background: #8b5cf6; }
+.achievement-confetti i:nth-child(5) { background: #ff7a45; }
+.achievement-confetti i:nth-child(6) { background: #20c997; }
+.achievement-confetti i:nth-child(7) { background: #4f7cff; }
+.achievement-confetti i:nth-child(8) { background: #ff4d6d; }
+.achievement-confetti i:nth-child(9) { background: #3dd6d0; }
+.achievement-confetti i:nth-child(10) { background: #ffa62b; }
+.achievement-confetti i:nth-child(11) { background: #c77dff; }
+.achievement-confetti i:nth-child(12) { background: #7bdc65; }
+.achievement-confetti i:nth-child(13) { background: #28c7fa; }
+.achievement-confetti i:nth-child(14) { background: #ff4d6d; }
+.achievement-confetti i:nth-child(15) { background: #ffd405; }
+.achievement-confetti i:nth-child(16) { background: #20c997; }
+.achievement-confetti i:nth-child(17) { background: #8b5cf6; }
+.achievement-confetti i:nth-child(18) { background: #ffa62b; }
+
+.achievement-confetti i:nth-child(1) { --burst-x: -34vw; --burst-y: -27vh; --burst-rotate: -105deg; }
+.achievement-confetti i:nth-child(2) { --burst-x: -24vw; --burst-y: -38vh; --burst-rotate: 80deg; }
+.achievement-confetti i:nth-child(3) { --burst-x: -14vw; --burst-y: -31vh; --burst-rotate: 155deg; }
+.achievement-confetti i:nth-child(4) { --burst-x: -5vw; --burst-y: -40vh; --burst-rotate: -35deg; }
+.achievement-confetti i:nth-child(5) { --burst-x: 7vw; --burst-y: -35vh; --burst-rotate: 115deg; }
+.achievement-confetti i:nth-child(6) { --burst-x: 18vw; --burst-y: -40vh; --burst-rotate: -85deg; }
+.achievement-confetti i:nth-child(7) { --burst-x: 30vw; --burst-y: -29vh; --burst-rotate: 45deg; }
+.achievement-confetti i:nth-child(8) { --burst-x: 37vw; --burst-y: -16vh; --burst-rotate: 135deg; }
+.achievement-confetti i:nth-child(9) { --burst-x: 34vw; --burst-y: 13vh; --burst-rotate: -65deg; }
+.achievement-confetti i:nth-child(10) { --burst-x: 22vw; --burst-y: 31vh; --burst-rotate: 100deg; }
+.achievement-confetti i:nth-child(11) { --burst-x: -19vw; --burst-y: 30vh; --burst-rotate: -145deg; }
+.achievement-confetti i:nth-child(12) { --burst-x: -35vw; --burst-y: 12vh; --burst-rotate: 70deg; }
+.achievement-confetti i:nth-child(13) { --burst-x: -42vw; --burst-y: -7vh; --burst-rotate: 130deg; }
+.achievement-confetti i:nth-child(14) { --burst-x: 43vw; --burst-y: -4vh; --burst-rotate: -115deg; }
+.achievement-confetti i:nth-child(15) { --burst-x: -27vw; --burst-y: 39vh; --burst-rotate: 55deg; }
+.achievement-confetti i:nth-child(16) { --burst-x: 31vw; --burst-y: 38vh; --burst-rotate: -155deg; }
+.achievement-confetti i:nth-child(17) { --burst-x: -42vw; --burst-y: 22vh; --burst-rotate: 95deg; }
+.achievement-confetti i:nth-child(18) { --burst-x: 42vw; --burst-y: 26vh; --burst-rotate: -75deg; }
+
+@keyframes achievement-confetti-burst {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.45);
+  }
+
+  14% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(var(--burst-x), var(--burst-y)) rotate(var(--burst-rotate)) scale(0.9);
+  }
+}
+
+.achievement-lightbox-figure img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: calc(100vh - 112px);
+  max-height: calc(100svh - 112px);
+  object-fit: contain;
+}
+
+.achievement-lightbox-figure figcaption {
+  max-width: min(100%, 720px);
+  color: #fff;
+  font-size: 0.9rem;
+  line-height: 1.45;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 1099px) {
+  .achievement-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px 18px;
+  }
+}
+
+@media (max-width: 599px) {
+  #journey.achievements-section {
+    --achievements-gutter: clamp(18px, 6vw, 32px);
+  }
+
+  .achievements-subtitle {
+    margin-left: 0;
+    font-size: 0.9rem;
+    white-space: normal;
+  }
+
+  .achievement-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 22px;
+  }
+
+  .achievements-section .achievement-category + .achievement-category {
+    margin-top: 26px;
+    padding-top: 20px;
+  }
+
+  .achievement-lightbox-backdrop {
+    padding: 16px;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 767px) {
+  .achievements-subtitle {
+    margin-left: 0;
+    font-size: clamp(0.62rem, 1.5vw, 0.8rem);
+  }
+}
+
+@media (max-width: 359px) {
+  #journey.achievements-section {
+    --achievements-gutter: 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .achievement-preview-frame img {
+    transition: none;
+  }
+
+  .achievement-confetti {
+    display: none;
+  }
+
+  .achievement-preview-trigger:hover .achievement-preview-frame img {
+    transform: none;
+  }
+}
