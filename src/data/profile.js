@@ -3,7 +3,6 @@ export const profile = {
   brand: 'Aldrich',
   location: 'Manila, Philippines',
   email: 'aldrichpayawal3@gmail.com',
-  phone: '09472986386',
   github: 'https://github.com/richald03/',
   discordUrl: 'https://discord.com/users/873204612981735424',
   aboutSummary:

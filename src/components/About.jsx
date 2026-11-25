@@ -6,7 +6,6 @@ const BASE = import.meta.env.BASE_URL;
 const details = [
   { label: 'Name', value: profile.name },
   { label: 'Email', value: profile.email, href: `mailto:${profile.email}` },
-  { label: 'Phone', value: profile.phone, href: 'tel:+639472986386' },
   { label: 'Location', value: profile.location },
   { label: 'Nationality', value: 'Filipino' },
 ];
